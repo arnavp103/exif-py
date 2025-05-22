@@ -118,3 +118,12 @@ def test_stop_tag_with_thumbnail_extract():
     with open(file_path, "rb") as fh:
         tags = exifread.process_file(fh=fh, details=False, stop_tag="Orientation")
     assert tags
+
+
+def test_cr3_file():
+    """Test that CR3 files can be read successfully."""
+    file_path = RESOURCES_ROOT / "raw/VZG_0005.CR3"
+    with open(file_path, "rb") as fh:
+        tags = exifread.process_file(fh=fh, details=True)
+    assert tags  # Ensure tags were read
+    assert len(tags) == 697  # Verify expected number of tags
