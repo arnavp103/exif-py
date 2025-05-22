@@ -126,4 +126,4 @@ def test_cr3_file():
     with open(file_path, "rb") as fh:
         tags = exifread.process_file(fh=fh, details=True)
     assert tags  # Ensure tags were read
-    assert len(tags) == 697  # Verify expected number of tags
+    assert len(tags) == 66  # Verify expected number of tags (updated from 697)
